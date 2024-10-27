@@ -80,3 +80,4 @@ gem 'jquery-rails'
 
 gem "sassc-rails"
 
+gem 'devise'
