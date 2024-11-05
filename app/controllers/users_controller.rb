@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(8).reverse_order
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
   end
 
   def edit
@@ -17,6 +19,17 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end
+
+  def follows
+    user = User.fond(params[:id])
+    @users = user.following_user.page(params[:page]).per(3).reverse_order
+  end
+
+  def followers
+    user = User.fond(params[:id])
+    @users = user.following_user.page(params[:page]).per(3).reverse_order
+  end
+
 
   private
   def user_params
