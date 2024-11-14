@@ -29,5 +29,7 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
+  validates :name, presence:true
+
 
 end
