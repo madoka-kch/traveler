@@ -1,6 +1,11 @@
-<h2>Log in</h2>
+<div class="bg">
+  <div class="box">
+    <div class="box-inner">
+      <%= form_with model: @user, url: user_session_path, local:true do |f| %>
+      <% flash.each do |message_type, message| %>
+          <conetnt_tag :div, message, class: message_type %> 
+# ここまで
 
-<%= form_with model: @user, url: user_session_path, local:true do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

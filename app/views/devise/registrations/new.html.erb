@@ -22,7 +22,7 @@
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
-      <div class="box-passwaord">
+      <div class="box-password">
         <%= f.label :password_confirmation,"パスワード（確認）" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
@@ -32,8 +32,8 @@
       </div>
       <% end %>
 
-      <div class="box-login">
-        <p><span>------------</span>既に登録されていますか？<span>------------</span></p>
+      <div class="box-newusr">
+        <p><span>----------</span>既に登録されていますか？<span>----------</span></p>
         <%= link_to "ログイン", new_user_session_path %>
       </div>
     </div>
