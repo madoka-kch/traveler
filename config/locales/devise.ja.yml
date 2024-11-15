@@ -1,5 +1,5 @@
 ja:
-  e:rrors:
+  errors:
     format: "%{message}"
   activerecord:
     errors:
