@@ -22,6 +22,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(7).reverse_order
+    # 追記したビュー回数のコントローラ
+    @post.increment_views
+
   end
 
   def edit
@@ -46,6 +49,7 @@ class PostsController < ApplicationController
   def confirm
     @posts = current_user.posts.draft.page(params[:page]).reverse_order
   end
+
 
   private
   def post_params
