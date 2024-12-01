@@ -49,7 +49,7 @@
 // 投稿詳細ページ
 
 .cover-show{
-    height: 100%;
+    height: 130%;
     width: 100%;
     background-image: url(/assets/show-scaled.jpg);
     background-color: rgba(255, 255, 255, 0.4);
@@ -109,6 +109,10 @@
 
 .caption {
     margin-bottom: 0;
+}
+
+.numberofviews {
+    font-size: 20px; 
 }
 
 .favorite_btn {
