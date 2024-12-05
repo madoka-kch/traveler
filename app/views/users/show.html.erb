@@ -45,8 +45,6 @@
       <h4 class="ml-3 mb-3 card w-100 profile"><%= @user.profile %></h4>
     </div>
 
-    # フォロー・フォロワー機能
-
     <div class="d-flex">
       <%= link_to follows_user_path(@user) do %>
         <h6>フォロー<%= @following_users.count %></h6>

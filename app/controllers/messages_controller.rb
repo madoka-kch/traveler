@@ -1,30 +1,12 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!, :only => [:create]
 
-    before_action :authenticate_user!  # ユーザーがログインしているか確認
-  
-    def index
-      @receiver = User.find(params[:user_id])  # チャット相手のユーザーを取得
-      @messages = Message.where(sender_id: current_user.id, receiver_id: @receiver.id)
-                          .or(Message.where(sender_id: @receiver.id, receiver_id: current_user.id))
-                          .order(:created_at)  # 現在のユーザーと相手のメッセージを取得
-      @message = Message.new  # 新しいメッセージを作成
+  def create
+    if Entry.where(:user_id => current_user.id, :room_id => params[:message][:room_id]).present?
+      @message = Message.create(params.require(:message).permit(:message,:user_id, :content, :room_id).merge(:user_id => current_user.id))
+      redirect_to "/rooms/#{@message.room_id}"
+    else
+      redirect_back(fallback_location: root_path)
     end
-  
-    def create
-      @receiver = User.find(params[:user_id])
-      @message = current_user.sent_messages.build(message_params)  # 送信者を設定
-      @message.receiver = @receiver  # 受信者を設定
-  
-      if @message.save
-        redirect_to messages_path(user_id: @receiver.id)  # メッセージ送信後、チャット画面にリダイレクト
-      else
-        render :index  # エラーがあれば再度表示
-      end
-    end
-  
-    private
-    def message_params
-      params.require(:message).permit(:content)
-    end
-  
+  end
 end

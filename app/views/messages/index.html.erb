@@ -1,13 +1,18 @@
 <h1>トークルーム</h1>
 
-<h2>メッセージ</h2>
-<% @messages.each do |message| %>
-  <p><%= message.sender.name %>: <%= message.content %></p>
-<% end %>
 
+<h2>メッセージ</h2>
+<div class="chat-messages">
+  <% @messages.each do |message| %>
+    <div class="<%= message.sender == current_user ? 'message-right' : 'message-left' %>">
+      <p><%= message.sender.name %>: <%= message.content %></p>
+    </div>
+  <% end %>
+</div>
 
 <%= form_with(model: @message, local: true) do |form| %>
   <%= form.text_area :content, rows: 3 %>
   <%= form.submit '送信' %>
 <% end %>
+
 
