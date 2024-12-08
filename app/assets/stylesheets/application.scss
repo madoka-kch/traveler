@@ -44,7 +44,7 @@ header div:last-child {
 
 header div{
     margin-left: 30px;
-    line-heght: 30px;
+    line-height: 30px;
 }
 
 a:hover {
@@ -75,14 +75,21 @@ a:hover {
 
 .chat-messages {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 10px;
+    color: #111;
+    background-image: none;
+    background-color: #fdfcfcf5;
+    width: 90%; 
+    margin-left: 60px;
+    padding: 30px;
 }
   
 .message-right {
     align-self: flex-end;
     background-color: #d1e7dd;
-    color: #ddb6d3;
+    color: #111;
     padding: 10px;
     border-radius: 10px;
     max-width: 70%;
@@ -91,8 +98,17 @@ a:hover {
 .message-left {
     align-self: flex-start; 
     background-color: #f8d7da;
-    color: #b6d7a9;
+    color: #111;;
     padding: 10px;
     border-radius: 10px;
     max-width: 70%;
+}
+
+.send-messages {
+    position: fixed;
+    bottom: 20px;
+    width: 80%;
+    left: 5%; 
+    padding: 10px;
+    border-radius: 10px; 
 }

@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
             @entries = @room.entries
           #Roomで相手の名前表示するために記述
             @myUserId = current_user.id
+            @user = @entries.where.not(user_id: current_user.id).first&.user
           else
             redirect_back(fallback_location: root_path)
           end

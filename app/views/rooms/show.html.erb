@@ -1,18 +1,22 @@
-<h1>トークルーム</h1>
 
-
-<h2>メッセージ</h2>
-<div class="chat-messages">
-  <% @messages.each do |message| %>
-    <div class="<%= message.user == current_user ? 'message-right' : 'message-left' %>">
-      <p><%= message.user.name %>: <%= message.message %></p>
+<div class="cover-user-show">
+  <div class="container d-flex flex-column align-items-center">
+    <h1 class="row mt-5"><%= @user&.name %>さんとのトークルーム</h1>
+      <div class="chat-messages">
+        <% @messages.each do |message| %>
+          <div class="<%= message.user == current_user ? 'message-right' : 'message-left' %>">
+            <p><%= message.user.name %>: <%= message.message %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="send-messages">
+        <%= form_with(model: @message, local: true) do |form| %>
+          <%= form.text_area :message, rows: 3 %>
+          <%= form.hidden_field :room_id, value: @room.id %>
+          <%= form.submit '送信する' %>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
 </div>
-
-<%= form_with(model: @message, local: true) do |form| %>
-  <%= form.text_area :content, rows: 3 %>
-  <%= form.submit '送信' %>
-<% end %>
-
 
