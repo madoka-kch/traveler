@@ -81,6 +81,7 @@ a:hover {
     color: #111;
     background-image: none;
     background-color: #fdfcfcf5;
+    overflow-y: auto;
     width: 90%; 
     margin-left: 60px;
     padding: 30px;
@@ -104,11 +105,19 @@ a:hover {
     max-width: 70%;
 }
 
-.send-messages {
+.send-messages textarea{
     position: fixed;
     bottom: 20px;
     width: 80%;
     left: 5%; 
-    padding: 10px;
-    border-radius: 10px; 
+    padding: 10px; 
+}
+
+.send-messages button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
 }
