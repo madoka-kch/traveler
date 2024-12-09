@@ -106,18 +106,21 @@ a:hover {
 }
 
 .send-messages textarea{
-    position: fixed;
-    bottom: 20px;
-    width: 80%;
-    left: 5%; 
-    padding: 10px; 
+    position: fixed;       
+    bottom: 10px;          
+    left: 50%;             
+    transform: translateX(-50%);
+    width: 60%;         
+    padding: 10px;        
+    box-sizing: border-box;
+    resize: none;   
 }
 
-.send-messages button {
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+.send-messages-submit {
+    position: absolute;
+    bottom: 10px;    /* ボタンをボックスの下端に配置 */
+    right: 150px;  
+    border: none;               /* ボーダーをなし */
+    cursor: pointer;            /* ポインターを表示 */
 }
+

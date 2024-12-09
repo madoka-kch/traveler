@@ -13,7 +13,7 @@
         <%= form_with(model: @message, local: true) do |form| %>
           <%= form.text_area :message, rows: 3 %>
           <%= form.hidden_field :room_id, value: @room.id %>
-          <%= form.submit '送信する' %>
+          <%= form.submit '送信する', class: "send-messages-submit" %>
         <% end %>
       </div>
     </div>
